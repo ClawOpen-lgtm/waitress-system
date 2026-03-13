@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: waitress-backend
+  namespace: ai-workloads
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: waitress-backend
+  template:
+    metadata:
+      labels:
+        app: waitress-backend
+    spec:
+      containers:
+      - name: backend
+        image: ghcr.io/yourrepo/waitress-backend:latest  # replaced by workflow
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ConnectionStrings__DefaultConnection
+          value: "Host=waitress-db;Port=5432;Database=waitress;Username=postgres;Password=password"
+        volumeMounts:
+        - name: products-config
+          mountPath: /app/products.json
+          subPath: products.json
+      volumes:
+      - name: products-config
+        configMap:
+          name: waitress-products-config

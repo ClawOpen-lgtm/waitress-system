@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: waitress-frontend
+  namespace: ai-workloads
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: waitress-frontend
+  template:
+    metadata:
+      labels:
+        app: waitress-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: ghcr.io/yourrepo/waitress-frontend:latest
+        ports:
+        - containerPort: 80

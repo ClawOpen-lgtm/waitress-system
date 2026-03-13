@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: waitress-backend
+  namespace: ai-workloads
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`waitress.ai.hinterdorfer.dev`) && PathPrefix(`/api`)
+    kind: Rule
+    services:
+    - name: waitress-backend
+      port: 80
+  tls:
+    certResolver: le

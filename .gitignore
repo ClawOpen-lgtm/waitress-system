@@ -1,0 +1,19 @@
+# .gitignore for fullstack waitress app
+
+# .NET
+backend/bin/
+backend/obj/
+backend/*.user
+backend/*.suo
+backend/*.userosscache
+backend/*.sln.docstates
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode
+
+# General
+.env
+*.log
