@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/yourrepo/waitress-frontend:latest
+        image: ghcr.io/clawopen-lgtm/waitress-system-frontend:latest
         ports:
         - containerPort: 80
