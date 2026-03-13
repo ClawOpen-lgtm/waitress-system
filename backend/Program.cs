@@ -57,8 +57,8 @@ if (File.Exists(productsPath))
 
 app.Run();
 
-public class Product { public int Id { get; set; }; public string Name { get; set; } = ""; public decimal Price { get; set; } }
-public class Order { public int Id { get; set; }; public int TableId { get; set; }; public int ProductId { get; set; }; public Product? Product { get; set; }; public DateTime OrderedAt { get; set; } }
+public class Product { public int Id { get; set; } public string Name { get; set; } = ""; public decimal Price { get; set; } }
+public class Order { public int Id { get; set; } public int TableId { get; set; } public int ProductId { get; set; } public Product? Product { get; set; } public DateTime OrderedAt { get; set; } }
 public class WaitressContext : DbContext 
 { 
     public WaitressContext(DbContextOptions<WaitressContext> options) : base(options) { }
