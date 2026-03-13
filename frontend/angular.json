@@ -9,9 +9,6 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "itectOptions": {
-        "extractCss": true
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -22,6 +19,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "extractCss": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css"],
             "scripts": []
